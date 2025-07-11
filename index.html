@@ -340,7 +340,7 @@
                 
                 // Test connection by querying the database
                 const { data, error } = await supabase
-                    .from('acting_institute.contacts')
+                    .from('acting_institute_contacts')
                     .select('id')
                     .limit(1);
 
@@ -364,7 +364,7 @@
             try {
                 // Load all contacts
                 const { data: contacts, error: contactsError } = await supabase
-                    .from('acting_institute.contacts')
+                    .from('acting_institute_contacts')
                     .select('*');
                 
                 if (contactsError) throw contactsError;
@@ -376,7 +376,7 @@
 
                 // Load pending payments with contact details
                 const { data: payments, error: paymentsError } = await supabase
-                    .from('acting_institute.payments')
+                    .from('acting_institute_payments')
                     .select(`
                         *,
                         contact:contact_id (
